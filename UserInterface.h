@@ -12,7 +12,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-//#include <avr/io.h>
 #include "PinDrivers.h"
 #include "IoLines.h"
 #include "macros.h"
@@ -25,7 +24,6 @@
 #define LCD_LINE4_ADDR 0x54
 #define SET_DDRAM_ADDRESS 0x80
 
-//void clearBuffer(char *buffer, uint8_t size);
 void LCD_data(uint8_t data);
 void LCD_instr(uint8_t data);
 uint8_t read_switch(void);
@@ -34,20 +32,7 @@ void RotCount(uint8_t dir, uint8_t *count);
 void LCD_init(void);
 void UI_IndBuf_load(uint8_t state, uint8_t index, uint8_t index_max);
 void CapInd(char *target, char *source, uint8_t select);
-//void Display(uint8_t *line_1, uint8_t *line_2, uint8_t *line_3, uint8_t *line_4);
 void Display(uint8_t lineIndex, char *line);
-
-/*void DisplayStatus(uint8_t *line3);
-
-void updateSoftKeyLabels(void);
-void getComboName(uint8_t index);
-void getCombo(uint8_t index);
-uint8_t goDown(uint8_t index);
-uint8_t goUp();
-//void saveCombo(void);
-void processPedalUI(void);
-uint8_t updateParamValues(void);
-uint8_t updateStatus(void);*/
 
 uint8_t uiReady(void);
 uint8_t isPowerOffButtonPushed(void);

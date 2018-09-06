@@ -5,11 +5,9 @@
  *      Author: buildrooteclipse
  */
 
-//#define __AVR_ATmega168__ 1
+#include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
-//#include <avr/iom168.h>
-#include <avr/io.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,7 +23,6 @@ void main()
 {
 	uint8_t dummy = 0;
 	long powerOffCount = 0;
-	//DDRD = 0xFF;
 	displayLineIndex = 0;
 	displayLineCharIndex = 0;
 
@@ -63,14 +60,9 @@ void main()
 			cmDetectCount = 0;
 			if(isPowerOffButtonPushed() != 0)
 			{
-				/*if(isCMRunning() == 0)
-				{
-					powerOffCount = 1000000;
-				}
-				else*/
 				{
 					powerOffCount++;
-					if(/*(powerOffCount >= 1000000) || */(isCMRunning() == 0))
+					if(isCMRunning() == 0)
 					{
 						Display(1,"powered off      ");
 						Display(2,"release button   ");
@@ -86,16 +78,10 @@ void main()
 
 		if(displayLineIndex > 0)
 		{
-
 			Display(displayLineIndex, displayLine);
 			displayLineIndex = 0;
-
 		}
-
-
 	}
-
-
 
 	 while(isPowerOffButtonPushed() != 0); // wait until power button is released
 	 delay(50000);
@@ -110,9 +96,6 @@ void main()
 	  * !!!!!!!!!!!! 3.3V LINE TO PREVENT SHUTOFF WHEN  		!!!!!!!!
 	  * !!!!!!!!!!!! PROGRAMMING MCU					 		!!!!!!!!
 	  ******************************************************************/
-	 DDRC &= ~BIT(nPOWER_OFF);//PORTC &= ~BIT(nPOWER_OFF);  // SHUTOFF LINE
+	 DDRC &= ~BIT(nPOWER_OFF);  // SHUTOFF LINE
 	 while(1);
 }
-
-
-

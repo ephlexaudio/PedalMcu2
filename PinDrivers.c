@@ -7,30 +7,20 @@
 
 #include "PinDrivers.h"
 #include "GlobalVars.h"
-//#include <avr/iom168.h>
 #include <avr/io.h>
-//extern uint8_t rx_done;
 
 extern void delay(unsigned long delay);
-/*{
- unsigned long i;
-
- for (i = 0; i < delay; i++)
- {
-  NOP();
- }
-}*/
 
 void LcdWrite(void)
 {
 	PORTC |= BIT(LCD_E);
-	delay(200); //200
+	delay(200);
 	PORTC &= ~BIT(LCD_E);
 }
 
 void LcdDataEn(void)	//Set R/S pin high
 {
-	PORTC |= BIT(LCD_RS);//(1 << (LCD_RS));
+	PORTC |= BIT(LCD_RS);
 }
 
 void LcdInstrEn(void)	  //Set R/S pin low

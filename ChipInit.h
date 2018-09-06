@@ -12,8 +12,6 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include "PinDrivers.h"
-//#include "IoLines.h"
-//#include "macros.h"
 
 void IO_config(void);
 void UART_config(void);

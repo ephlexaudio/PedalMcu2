@@ -19,7 +19,4 @@ void fillBuffer(char *buffer, char *string, uint8_t length);
 void zero2Space(char* buffer, uint16_t length);
 
 
-/*void clearDebugString(void);
-void addDebugData(char *data);
-void sendDebugString(void);*/
 #endif /* UTILITYFUNCTS_H_ */

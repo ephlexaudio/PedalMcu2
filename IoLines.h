@@ -8,12 +8,7 @@
 #ifndef IOLINES_H_
 #define IOLINES_H_
 
-//#include "macros.h"
-
-
 /*** PORTB ***/
-//#define BUTTON_PUSHED		7
-//#define LCD_RS		6    //Xmega: 2
 #define SPI_SCK		5    //Xmega: 1
 #define SPI_MISO		4    //Xmega: 0
 #define SPI_MOSI 	3    //Xmega: 6
@@ -28,6 +23,7 @@
 #define nPOWER_BUTTON	3
 #define PEDAL_OUTPUT_nEN	4  // also use to detect CM powered-off state when MCU is in power-off mode.
 #define nPOWER_OFF		5
+
 /*** PORTD ***/
 // LCD data lines
 
