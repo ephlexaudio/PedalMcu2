@@ -19,9 +19,8 @@
 #include "UserInterface.h"
 #include "GlobalVars.h"
 
-void main()
+int main()
 {
-	uint8_t dummy = 0;
 	long powerOffCount = 0;
 	displayLineIndex = 0;
 	displayLineCharIndex = 0;
@@ -96,6 +95,7 @@ void main()
 	  * !!!!!!!!!!!! 3.3V LINE TO PREVENT SHUTOFF WHEN  		!!!!!!!!
 	  * !!!!!!!!!!!! PROGRAMMING MCU					 		!!!!!!!!
 	  ******************************************************************/
-	 DDRC &= ~BIT(nPOWER_OFF);  // SHUTOFF LINE
+	 //DDRC &= ~BIT(nPOWER_OFF);  // SHUTOFF LINE
 	 while(1);
+	 return 0;
 }

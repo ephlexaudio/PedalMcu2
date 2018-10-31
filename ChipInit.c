@@ -18,7 +18,7 @@ void IO_config(void)
  DDRB  = BIT(USB_POWER_GATE)|BIT(USB_DATA_nGATE);
  PORTB = BIT(USB_POWER_GATE);
 
- DDRC  = BIT(LCD_E)|BIT(LCD_RnW)|BIT(LCD_RS)|BIT(nPOWER_OFF); // Compute modules
+ DDRC  = BIT(LCD_E)|BIT(LCD_RnW)|BIT(LCD_RS)|BIT(nPOWER_OFF);
  PORTC = BIT(nPOWER_OFF);
 
  DDRD  = 0b11111111; // LCD data lines
@@ -36,8 +36,8 @@ void SPI_config(void)
 {
  SPCR = BIT(SPE)|BIT(SPIE);
  SPSR = 0X00;
- uint8_t dummy = SPSR;
- dummy = SPDR;
+ uint8_t dummy = SPSR;  // Clear interrupt flag
+ dummy = SPDR;			// Clear data register
 }
 
 

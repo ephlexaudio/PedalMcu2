@@ -15,8 +15,8 @@
 void LcdWrite(void);
 void LcdDataEn(void);
 void LcdInstrEn(void);
-void SPI_Tx(uint8_t data);
-uint8_t SPI_Rx(void);
+/*void SPI_Tx(uint8_t data);
+uint8_t SPI_Rx(void);*/
 uint8_t isCMRunning();
 
 #endif /* PINDRIVERS_H_ */

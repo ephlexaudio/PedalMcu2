@@ -8,22 +8,9 @@
 #include "utilityFuncts.h"
 #include "GlobalVars.h"
 #include <avr/io.h>
-#define NULL 0
-#define SHARED_MEMORY_SECTION_SIZE 4096
-#define MCU_SHARED_MEMORY_SECTION_INDEX 0
-#define CM0_SHARED_MEMORY_SECTION_INDEX 1
 
-typedef uint8_t uint8_t;
-extern void clearBuffer(char *buffer, int length);
 
-#define dbgUi 0
-extern const char *testJson;
 
-extern uint8_t rx_done;
-
-extern void delay(unsigned long delay);
-
-#if(dbgUi == 0)
 /***********************************************************
  *			Writing data uint8_ts to LCD Display
  ***********************************************************/
@@ -51,26 +38,6 @@ void LCD_instr(uint8_t data)
 }
 
 
-
-/***********************************************************
- *		Inc/Dec effect parameter value
- *		count MUST be a global variable
- ***********************************************************/
-void RotCount(uint8_t dir, uint8_t *count)
-{
-	uint8_t change;
-
-	if ((dir == 1) && (*count < 100))
-	{
-		(*count)++;
-	}
-	else if ((dir == 2) && (*count > 0))
-	{
-		(*count)--;
-	}
-}
-
-
 /***********************************************************
  *					Initializing LCD Display
  ***********************************************************/
@@ -90,17 +57,17 @@ void LCD_init(void)
 	LCD_instr(0b00000110);
 	LCD_instr(0b00001100);
 }
-#endif
 
-uint8_t internalDisplayLineIndex = 0;
-uint8_t receiveState = 0;
+
+/*uint8_t internalDisplayLineIndex = 0;
+uint8_t receiveState = 0;*/
 
 ISR(SPI_STC_vect)
 {
 
 	char receivedChar;
-
-
+	static uint8_t receiveState;
+	static uint8_t internalDisplayLineIndex;
 	receivedChar = SPDR;
 	switch(receiveState)
 	{
@@ -140,9 +107,6 @@ ISR(SPI_STC_vect)
 void Display(uint8_t lineIndex, char *line)
 {
 	uint8_t n=0;
-	uint8_t i=0;
-
-	int hashDummy;
 
 	switch(lineIndex)
 	{

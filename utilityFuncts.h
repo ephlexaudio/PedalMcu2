@@ -14,9 +14,6 @@
 
 void delay(unsigned long delay);
 void clearBuffer(char *buffer, int length);
-void clearTextBuffer(char *buffer, int length);
-void fillBuffer(char *buffer, char *string, uint8_t length);
-void zero2Space(char* buffer, uint16_t length);
 
 
 #endif /* UTILITYFUNCTS_H_ */

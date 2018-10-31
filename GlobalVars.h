@@ -11,8 +11,8 @@
 #include <ctype.h>
 #include <stdint.h>
 
-#define TX_BUFFER_SIZE  50
-#define RX_BUFFER_SIZE  50
+#define SPI_TX_BUFFER_SIZE  50
+#define SPI_RX_BUFFER_SIZE  50
 
 
 /****************** UI LCD and Buttons ***********************/
