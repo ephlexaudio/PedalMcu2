@@ -26,10 +26,7 @@
 
 void LCD_data(uint8_t data);
 void LCD_instr(uint8_t data);
-//uint8_t read_switch(void);
 void LCD_init(void);
-//void UI_IndBuf_load(uint8_t state, uint8_t index, uint8_t index_max);
-//void CapInd(char *target, char *source, uint8_t select);
 void Display(uint8_t lineIndex, char *line);
 
 uint8_t isPowerOffButtonPushed(void);

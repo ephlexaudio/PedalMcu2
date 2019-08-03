@@ -59,8 +59,6 @@ void LCD_init(void)
 }
 
 
-/*uint8_t internalDisplayLineIndex = 0;
-uint8_t receiveState = 0;*/
 
 ISR(SPI_STC_vect)
 {
